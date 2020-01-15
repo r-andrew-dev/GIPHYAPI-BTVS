@@ -18,14 +18,12 @@ function create() {
 
 create();
 
-var query;
-
-var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=cqvd7dfuQogEffYZG7FyYxZHBWtlG86P&q=" + query + "&limit=10&offset=0&rating=PG-13&lang=en";
-
 $("#buttons").on("click", "button", function() {
-
     
-    query = $(this).text();
+    var query = $(this).text();
+
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=cqvd7dfuQogEffYZG7FyYxZHBWtlG86P&q=" + 
+                    query + "&limit=10&offset=0&rating=PG-13&lang=en";
 
     console.log(query);
 
