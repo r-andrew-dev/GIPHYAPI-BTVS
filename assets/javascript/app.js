@@ -1,6 +1,6 @@
 $(function() {
 
-var topics = ["Spike", "Willow", "Buffy", "Xander", "Giles", "slaying", "Anya", "Anyanka", "Tara", "Joyce", "Angel", "Cordelia", "Parker", "Oz", "Faith"];
+var topics = ["Buffy Summers", "Spike", "Willow Rosenberg", "Xander Harris", "Giles", "Anyanka", "Tara", "Joyce Summers", "Angelus", "Oz", "Faith"];
 
 function create() {
     
@@ -23,7 +23,7 @@ $("#buttons").on("click", "button", function() {
     var query = $(this).text();
 
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=cqvd7dfuQogEffYZG7FyYxZHBWtlG86P&q=" + 
-                    query + "&limit=10&offset=0&rating=PG-13&lang=en";
+                    query + " btvs&limit=10&offset=0&rating=PG-13&lang=en";
 
     console.log(query);
 
@@ -35,6 +35,8 @@ $("#buttons").on("click", "button", function() {
 
 
     }).then(function(response) {
+
+        $("#image-container").html(" ");
 
         var results = response.data;
 
