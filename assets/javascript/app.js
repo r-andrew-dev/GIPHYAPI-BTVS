@@ -10,7 +10,7 @@ function create() {
 
     button.text(topics[i])
 
-    $("#container").append(button);
+    $("#buttons").append(button);
 
 }
 
@@ -18,21 +18,50 @@ function create() {
 
 create();
 
-var queryURL = https://api.giphy.com/v1/gifs/search?api_key=cqvd7dfuQogEffYZG7FyYxZHBWtlG86P&q=buffy&limit=10&offset=0&rating=PG&lang=en
+var query;
 
-var query = 
+var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=cqvd7dfuQogEffYZG7FyYxZHBWtlG86P&q=" + query + "&limit=10&offset=0&rating=PG-13&lang=en";
 
-$("#container").on("click", "button", function() {
+$("#buttons").on("click", "button", function() {
+
+    
+    query = $(this).text();
+
+    console.log(query);
+
+    console.log(queryURL);
 
     $.ajax({
-        url: queryURL;
+        url: queryURL,
         method: "GET"
 
 
     }).then(function(response) {
 
+        var results = response.data;
 
-    }
+        for (i=0; i < results.length; i++) {
+
+        var gifDiv = $("<div>");
+
+        var p = $("<p>");
+
+        p.text("Rating: " + (results[i].rating));
+
+        var image = $("<img>");
+
+        image.attr("src", results[i].images.fixed_height_still.url);
+
+        gifDiv.append(p);
+        gifDiv.append(image);
+
+        $("#image-container").prepend(gifDiv);
+
+
+        }
+
+
+    })
 
 
 })
