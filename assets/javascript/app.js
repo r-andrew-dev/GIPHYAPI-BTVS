@@ -75,7 +75,6 @@ $(function () {
 
             $("#user-flag").text("Don't you see it up there already?");
             $(".search").val("");
-            return "This button has already been added."
         }
 
         else {
