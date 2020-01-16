@@ -45,9 +45,8 @@ $(function () {
                             "data-animate": results[i].images.fixed_height.url,
                             "data-still": results[i].images.fixed_height_still.url,
                             "class": "gif",});
-                                
-                gifDiv.append(image);
-                gifDiv.append(p);
+
+                gifDiv.append([image, p]);
 
                 $("#image-container").prepend(gifDiv);
             }
