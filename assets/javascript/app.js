@@ -23,7 +23,7 @@ $("#buttons").on("click", "button", function() {
     var query = $(this).text();
 
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=cqvd7dfuQogEffYZG7FyYxZHBWtlG86P&q=" + 
-                    query + " btvs&limit=10&offset=0&rating=PG-13&lang=en";
+                    query + " buffy the vampire slayer&limit=10&offset=0&rating=PG-13&lang=en";
 
     $.ajax({
         url: queryURL,
@@ -56,8 +56,8 @@ $("#buttons").on("click", "button", function() {
 
         image.addClass("gif");
 
-        gifDiv.append(p);
         gifDiv.append(image);
+        gifDiv.append(p);
 
         $("#image-container").prepend(gifDiv);
 
@@ -90,5 +90,7 @@ $("#image-container").on("click", ".gif", function() {
 
 
 })
+
+
 
 });
