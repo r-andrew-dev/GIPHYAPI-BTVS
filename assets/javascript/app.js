@@ -25,10 +25,6 @@ $("#buttons").on("click", "button", function() {
     var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=cqvd7dfuQogEffYZG7FyYxZHBWtlG86P&q=" + 
                     query + " btvs&limit=10&offset=0&rating=PG-13&lang=en";
 
-    console.log(query);
-
-    console.log(queryURL);
-
     $.ajax({
         url: queryURL,
         method: "GET"
@@ -52,6 +48,14 @@ $("#buttons").on("click", "button", function() {
 
         image.attr("src", results[i].images.fixed_height_still.url);
 
+        image.attr("data-state", "still")
+
+        image.attr("data-animate", results[i].images.fixed_height.url);
+
+        image.attr("data-still", results[i].images.fixed_height_still.url);
+
+        image.addClass("gif");
+
         gifDiv.append(p);
         gifDiv.append(image);
 
@@ -62,6 +66,27 @@ $("#buttons").on("click", "button", function() {
 
 
     })
+
+
+})
+
+$("#image-container").on("click", ".gif", function() {
+
+    console.log(this);
+
+    if ($(this).attr("data-state") === "still") {
+
+        $(this).attr("src", $(this).attr("data-animate"));
+        $(this).attr("data-state", "animate");
+
+        console.log($(this).attr("data-animate"));
+
+    }
+    else {
+
+        $(this).attr("src", $(this).attr("data-still"));
+        $(this).attr("data-state", "still");
+    }
 
 
 })
