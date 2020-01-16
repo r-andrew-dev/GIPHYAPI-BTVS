@@ -1,12 +1,14 @@
 $(function() {
 
-var topics = ["Buffy Summers", "Spike", "Willow Rosenberg", "Xander Harris", "Giles", "Anyanka", "Tara", "Joyce Summers", "Angelus", "Oz", "Faith"];
+var button;
+
+var topics = ["buffy", "spike", "willow", "xander", "giles", "anyanka", "tara", "joyce", "angelus", "oz", "faith"];
 
 function create() {
     
     for (i=0; i < topics.length; i++) {
 
-    var button = $("<button>")
+    button = $("<button>")
 
     button.text(topics[i])
 
@@ -20,10 +22,10 @@ create();
 
 $("#buttons").on("click", "button", function() {
     
-    var query = $(this).text();
+    var query = $(this).text().toLowerCase();
 
-    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=cqvd7dfuQogEffYZG7FyYxZHBWtlG86P&q=" + 
-                    query + " buffy the vampire slayer&limit=10&offset=0&rating=PG-13&lang=en";
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=cqvd7dfuQogEffYZG7FyYxZHBWtlG86P&q="
+     + query + " buffy&limit=10&offset=0&rating=PG-13&lang=en";
 
     $.ajax({
         url: queryURL,
@@ -42,7 +44,11 @@ $("#buttons").on("click", "button", function() {
 
         var p = $("<p>");
 
-        p.text("Rating: " + (results[i].rating));
+        var rating = results[i].rating
+
+        var newRating = rating.toUpperCase()
+
+        p.text("Rating: " + (newRating));
 
         var image = $("<img>");
 
@@ -90,6 +96,30 @@ $("#image-container").on("click", ".gif", function() {
 
 
 })
+
+$(".submit").on("click", function() {
+    event.preventDefault();
+    var buttonText = $(".search").val().trim().toLowerCase();
+
+    if (topics.indexOf(buttonText) > -1) {
+
+        console.log(topics.indexOf(buttonText))
+        return "This button has already been added."
+    }
+
+    else {
+
+    topics.push(buttonText);
+    $(".search").val("");
+    $("#buttons").empty();
+    create();
+    console.log(topics.indexOf("buffy"));
+
+    }
+
+
+});
+
 
 
 
