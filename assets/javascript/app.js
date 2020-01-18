@@ -2,7 +2,7 @@ $(function () {
 
     var button;
 
-    var topics = ["buffy", "spike", "willow", "xander", "giles", "anyanka", "tara", "joyce", "angelus", "oz", "faith"];
+    var topics = ["buffy", "spike", "willow", "xander", "giles",];
 
     function create() {
 
@@ -16,6 +16,7 @@ $(function () {
     create();
 
     $("#buttons").on("click", "button", function () {
+
         var query = $(this).text().toLowerCase();
         var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=cqvd7dfuQogEffYZG7FyYxZHBWtlG86P&q="
             + query + " buffy&limit=10&offset=0&rating=PG-13&lang=en";
@@ -32,7 +33,7 @@ $(function () {
 
             for (i = 0; i < results.length; i++) {
 
-                var gifDiv = $("<div>");
+                var gifDiv = $("<div class='image-div'>");
                 var p = $("<p>");
                 var rating = results[i].rating
                 var newRating = rating.toUpperCase()
@@ -44,11 +45,12 @@ $(function () {
                             "data-state": "still",
                             "data-animate": results[i].images.fixed_height.url,
                             "data-still": results[i].images.fixed_height_still.url,
-                            "class": "gif",});
+                            "class": "gif",});   
 
                 gifDiv.append([image, p]);
 
                 $("#image-container").prepend(gifDiv);
+
             }
         })
     })
@@ -73,13 +75,19 @@ $(function () {
 
         if (topics.indexOf(buttonText) > -1) {
 
-            $("#user-flag").text("Don't you see it up there already?");
+            $("#user-flag").text("Don't you see it already?");
             $(".search").val("");
         }
 
+        else if ($(".search").val().length === 0) {
+
+            return;
+        }
+        
+        
         else {
 
-            $("#user-flag").text("You're so awesome")
+            $("#user-flag").text("You're so awesome.")
             topics.push(buttonText);
             $(".search").val("");
             $("#buttons").empty();

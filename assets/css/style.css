@@ -1,0 +1,98 @@
+* {
+    box-sizing: border-box;
+}
+
+.container {
+    display: flex;
+    flex-flow: row wrap; 
+    justify-content: center;
+    align-items: space-evenly;
+    align-content: baseline;
+    max-height: 95%;
+    margin: 5% auto;
+    width: 80%;
+
+}
+
+
+#image-container {
+
+    flex-grow: 1;
+    flex-shrink: 1;
+    flex: none 1 1 90% auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-evenly;
+    align-items: baseline;
+    align-content: space-evenly;
+    background-image: linear-gradient(maroon, orange);
+    margin: 10%;
+}
+
+#buttons{
+
+    flex: none 0 1 40% auto;
+    margin: 3%;
+    margin-right: 5%
+}
+
+button {
+    padding: 2%;
+    background-color: darkgray;
+    font-size: 20px;
+    border-radius: 8px;
+    outline: none;
+}
+
+button:hover {
+
+    background-color: black;
+    color: white;
+}
+
+#form {
+
+    flex: none 1 1 40% auto;
+    margin: auto;
+    font-size: 18px;
+    border: 1px solid black;
+    padding: 2%;
+
+}
+
+.image-div {
+
+    flex: none 1 1 33% auto; 
+    margin: auto;
+}
+
+p {
+    flex: none 1 1 90% auto;
+    font-weight: bold;
+}
+
+img {
+    flex: none 1 1 90% auto;
+    border: 2px solid black;
+    margin: auto;
+}
+
+.submit {
+    font-size: 18px;
+    outline: none;
+}
+
+.submit:hover {
+    background-color: black;
+    color: white;
+}
+
+h1 {
+
+    flex: none 1 1 100% auto;
+    font-size: 60px;
+    font-weight: bold;
+    margin: 3%;
+
+}
+    
