@@ -2,7 +2,7 @@ $(function () {
 
     var button;
 
-    var topics = ["buffy", "spike", "willow", "xander", "giles",];
+    var topics = ["buffy", "spike", "willow", "xander", "giles"];
 
     function create() {
 

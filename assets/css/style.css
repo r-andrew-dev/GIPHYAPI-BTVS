@@ -64,6 +64,7 @@ button:hover {
 
     flex: none 1 1 33% auto; 
     margin: auto;
+    padding: 2%;
 }
 
 p {
