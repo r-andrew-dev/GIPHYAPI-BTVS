@@ -75,7 +75,7 @@ $(function () {
 
         if (topics.indexOf(buttonText) > -1) {
 
-            $("#user-flag").text("Don't you see it already?");
+            $("#user-flag").text("That one is there already.");
             $(".search").val("");
         }
 
