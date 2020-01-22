@@ -78,6 +78,10 @@ img {
     margin: auto;
 }
 
+img:hover {
+    border: 6px solid white;
+}
+
 .submit {
     font-size: 18px;
     outline: none;
